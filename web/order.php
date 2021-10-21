@@ -1,10 +1,17 @@
 <?php
 
+error_log("hello, this is a test!");
+
+
 if (isset($_SERVER['HTTP_CF_CONNECTING_IP']) && filter_var($_SERVER['HTTP_CF_CONNECTING_IP'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
     $userIp = $_SERVER['HTTP_CF_CONNECTING_IP'];
 }
 elseif (isset($_SERVER['HTTP_X_REAL_IP']) && filter_var($_SERVER['HTTP_X_REAL_IP'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
     $userIp = $_SERVER['HTTP_X_REAL_IP'];
+}
+elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && filter_var($_SERVER['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)){
+    $ipAddresses = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+    $userIp = trim(end($ipAddresses));
 }
 else {
     $userIp = $_SERVER['REMOTE_ADDR'];
@@ -34,6 +41,8 @@ $infoData = [
 ];
 
 
+error_log(implode(" ",$infoData));
+
 // id потока, например bakm
 $flow = 'CgCz';
 
@@ -47,8 +56,10 @@ $key = '868a3b61c4a00f26ae1f61ded43a415075e75978354205';
 $domain = 'offerrum.com';
 
 $url = "https://api.{$domain}/webmaster/order/?key={$key}&flow={$flow}&subid={$subid}";
+error_log($url);
 
 if (function_exists('curl_init') && $ch = curl_init()) {
+    error_log("cond 1");
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
@@ -56,9 +67,11 @@ if (function_exists('curl_init') && $ch = curl_init()) {
     curl_setopt($ch, CURLOPT_REFERER, $referer);
     curl_setopt($ch, CURLOPT_HEADER, false);
     $result = curl_exec($ch);
+    error_log($result);
     curl_close($ch);
 }
 else {
+    error_log("cond 2");
     $result = file_get_contents(
         $url,
         false,
@@ -72,6 +85,7 @@ else {
             ]
         )
     );
+    error_log($result);
 }
 
 
