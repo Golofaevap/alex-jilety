@@ -1,7 +1,7 @@
 @font-face {
     font-family: "gotham pro";
     src: url("../fonts/GothamProBold.eot");
-    src: url("../fonts/GothamProBold.eot@")format("embedded-opentype"),
+    src: url("../fonts/GothamProBold.eot")format("embedded-opentype"),
     url("../fonts/GothamProBold.woff") format("woff"),
     url("../fonts/GothamProBold.ttf") format("truetype");
     font-style: normal;
@@ -10,7 +10,7 @@
 @font-face {
     font-family: "gotham pro";
     src: url("../fonts/GothamProRegular.eot");
-    src: url("../fonts/GothamProRegular.eot@")format("embedded-opentype"),
+    src: url("../fonts/GothamProRegular.eot")format("embedded-opentype"),
     url("../fonts/GothamProRegular.woff") format("woff"),
     url("../fonts/GothamProRegular.ttf") format("truetype");
     font-style: normal;
@@ -18,7 +18,7 @@
 }@font-face {
     font-family: "gotham pro";
     src: url("../fonts/GothamProMedium.eot");
-    src: url("../fonts/GothamProMedium.eot@")format("embedded-opentype"),
+    src: url("../fonts/GothamProMedium.eot")format("embedded-opentype"),
     url("../fonts/GothamProMedium.woff") format("woff"),
     url("../fonts/GothamProMedium.ttf") format("truetype");
     font-style: normal;
@@ -26,7 +26,7 @@
 }@font-face {
     font-family: "gotham pro";
     src: url("../fonts/GothamProLight.eot");
-    src: url("../fonts/GothamProLight.eot@")format("embedded-opentype"),
+    src: url("../fonts/GothamProLight.eot")format("embedded-opentype"),
     url("../fonts/GothamProLight.woff") format("woff"),
     url("../fonts/GothamProLight.ttf") format("truetype");
     font-style: normal;
